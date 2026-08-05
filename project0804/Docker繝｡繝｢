@@ -1,0 +1,50 @@
+【PowerShellなどのターミナルで C:\Users\pikat\system\system_1 フォルダにいることを確認し、次のコマンドを実行します。】
+【-t system_1: 作成するイメージの名前を system_1 に指定しています。】
+docker build -t system_1 .
+
+【Dockerコンテナを起動する】
+docker run -d -p 8080:80 --name system_1 system_1
+
+【コンテナを停止・削除】
+docker stop system_1
+docker rm system_1
+
+【パソコンのフォルダと連動させて起動する】
+docker run -d -p 8080:80 --name system_1 -v ${PWD}:/usr/share/nginx/html system_1
+
+【サーバー側の準備と起動】
+cd server
+
+【Pythonのライブラリをインストールします（YOLOv8やOpenCVが入ります）】
+pip install -r requirements.txt
+
+【Node.jsのパッケージをインストールします】
+npm.cmd install
+
+【サーバーを起動します】
+node server.js
+
+
+【クライアント側を起動する】
+cd C:\Users\pikat\system\system_1\client
+
+npm.cmd install
+
+npm.cmd run dev
+
+【クライアントの再起動】
+npm.cmd run dev
+
+
+
+【一からの起動】
+【バックエンド】
+cd C:\Users\pikat\system\system_1\server
+
+node server.js
+
+【フロントエンド】
+cd C:\Users\pikat\system\system_1\client
+
+npm.cmd run dev
+
